@@ -1,0 +1,15 @@
+services:
+  shroomie-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${CONTAINER_NAME}:latest
+    container_name: ${CONTAINER_NAME}
+    working_dir: ${PROJECT_DIR}
+    volumes:
+      - ${PROJECT_DIR}:${PROJECT_DIR}
+    user: dev
+    stdin_open: true
+    tty: true
+    ports:
+      - 5173:5173
